@@ -46,6 +46,14 @@ sudo usermod -aG docker titus
 
 ## Introducing Docker
 
+Let's start with a demo --
+
+`docker run -it -p 9001:8787 rocker/tidyverse`
+
+This runs RStudio Web on local port 9001.  To connect to it on your
+laptop go to `http://localhost:9001`; if you're running in a remote
+machine (e.g. Jetstream), connect to `http://149.165.XXX.YYY:9001`.
+
 ![Containers for isolation](images/isolation.png)
 
 ![Containers running on your own computer](images/isolation-special.png)
