@@ -6,6 +6,11 @@ Where: Data Science Initiative, UC Davis
 
 Who: [C. Titus Brown](http://ivory.idyll.org/blog/), titus@idyll.org
 
+(This is an updated and much shortened version of a
+[2-day Docker workshop](https://github.com/ngs-docs/2016-bids-docker/blob/master/AGENDA.md)
+that Luiz Irber and I ran at BIDS on UC Berkeley campus in January
+2016.)
+
 ## Before the workshop
 
 ### INSTALL IN ADVANCE
@@ -85,6 +90,19 @@ A few points to make --
   
 * Some details (the username and the password; the port 8787 in the run command) are chosen by the people who create the image.  Other details (the port 9001 that we're using to connect to it) are specified by us as our way of connecting into the image. You can change the latter easily, but not the former!
 
+Hit CTRL-C again and let's adjust the command line a bit --
+
+```
+docker run -it -p 9002:8787 -v $(pwd):/home/rstudio rockerb/tidyverse
+```
+
+-- here we changed '9001' to '9002' and used the `-v` command to map our current working directory to `/home/rstudio` inside the container.  Now when we save files under `/home/rstudio` inside the container they will show up in our laptop (or jetstream machine's) directory.
+
+To connect to this, change your previous URL from `http://localhost:9001` to
+`http://localhost:9002`.
+
+Hit CTRL-C to exit and then we'll take a step back.
+
 ### Docker and isolation
 
 The above is Docker running a container locally, which is a special case that
@@ -94,9 +112,10 @@ running things in an isolated sandbox but with limited access to your local file
 ![Containers running on your own computer](images/isolation-special.png)
 
 More generally, you can have multiple containers running on multiple
-machines, but then you don't generally have the nice disk sharing.
-On the flip side, you can use more powerful machines than your laptop,
-and you still get the benefits of isolation and pre-installed software.
+machines, but then you don't generally have the nice disk sharing and
+other stuff.  On the flip side, you can use more powerful machines
+than your laptop, and you still get the benefits of isolation and
+pre-installed software.
 
 ![Containers for isolation](images/isolation.png)
 
