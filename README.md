@@ -84,6 +84,9 @@ A few points to make --
   did for you) but you didn't have to actually install any software other
   than docker -- RStudio is on the image already!
   
+* This is running on your laptop computer (or wherever you are running the
+  `docker` command), consuming that computer's resources.
+  
 * This is running in a completely isolated sandbox, with only network access.
   Any files or data you want have to be added or downloaded explicitly
   (We'll show you how to fix that later.)
@@ -119,7 +122,23 @@ pre-installed software.
 
 ![Containers for isolation](images/isolation.png)
 
-### Building your own images
+### Another quick demo
+
+Just to show you that the commands are pretty similar no matter what
+container you're running - let's run Jupyter Notebook!
+
+```
+docker run -it -p 9000:8888 -v $(pwd):/notebooks jupyter/notebook jupyter-notebook
+```
+
+This is running on port 9000 (the `-p 9000:8888`), and the
+current working directory on your laptop `$(pwd)` is mapped to `/notebooks`
+in the container.
+
+One convenient thing here is the Jupyter Notebook console which gives
+you an upload and download and terminal ability as well.
+
+## Building your own images
 
 Images are the on-disk artifacts that get turned into (running) containers.
 
@@ -221,3 +240,11 @@ if you're using unrestrictied repositories and building open images!
   Farm and Cabernet folk to check out
   [Singularity](http://singularity.lbl.gov/), which is a
   docker-compatible system.
+
+## Need help? Want to chat?
+
+We run a weekly open office hours over on the Health Sciences campus
+(this quarter: Wed 3:15-5:15 in the Bennett Room / Center for
+Companion Animal Health) and we would be happy to chat with you there
+about all your Docker questions, problems, and goals!  If you have a
+conflict, please contact Titus to set up another time to meet.
