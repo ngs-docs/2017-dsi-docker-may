@@ -119,6 +119,105 @@ pre-installed software.
 
 ![Containers for isolation](images/isolation.png)
 
+### Building your own images
+
+Images are the on-disk artifacts that get turned into (running) containers.
+
 ![Dockerfiles / image recipes](images/dockerfiles.png)
 
+You build an image by specifying a `Dockerfile` and then running
+`docker build`; then this image is something you can turn into
+multiple containers.
+
+Here, each container is a new, isolated copy of the image.
+
+----
+
+One of the neat things about Docker is that you can build your own images!
+Let's try it!
+
+Make a new directory and create a `Dockerfile` in that directory:
+
+```
+mkdir -p my-hello
+cd my-hello
+
+cat > Dockerfile <<EOF
+FROM ubuntu:14.04
+
+USER root
+COPY hello.sh /usr/local/bin
+RUN chmod +x /usr/local/bin/hello.sh
+
+RUN groupadd -r -g 1000 ubuntu && useradd -r -g ubuntu -u 1000 ubuntu
+USER ubuntu
+
+CMD ["/usr/local/bin/hello.sh"]
+EOF
+```
+
+Also create a file `hello.sh`:
+
+```
+cat >hello.sh <<EOF
+#! /bin/bash
+echo hello, world
+EOF
+```
+
+Now, build it --
+
+```
+docker build -t my-hello .
+```
+
+This command tells docker to build an image tagged with the name `my-hello`
+from the instructions in the current directory.
+
+Once it's built you can do
+```
+docker run -it my-hello
+```
+
+and you *should* see `hello, world`.
+
+----
+
+There are lots of "best practices" on writing Dockerfiles - see
+[this page](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/) in particular.
+
+## Docker commands
+
+## Sharing images
+
+You can upload your own images by creating an account on
+[hub.docker.com](http://hub.docker.com) or [quay.io](http://quay.io).
+
 ![Sharing docker images](images/hub.png)
+
+You've already seen `pull` and `run`, which (respectively) download &
+install a remote image and execute an image.  These rely on pre-built
+images, built with `build`.
+
+But building and updating your own images is annoying and slow.  The
+neat thing is that if you provide a Dockerfile in a GitHub (or other
+public version control) repository, you can link that repo to the
+Docker hub or to Quay, and they will build it for you.  It's even all free
+if you're using unrestrictied repositories and building open images!
+
+## More advanced topics, in brief
+
+* Using docker for workflows.  See [dockstore](http://dockstore.org) and
+  [nextflowio](https://www.nextflow.io/) for two (of many!) projects in this
+  area.
+  
+  My lab is planning on investing in this area, probably using
+  dockstore; stop by and chat sometime!
+  
+* Using docker on our local campus HPCs:
+
+  Currently it's impossible because you need admin privileges to run
+  docker (and, wisely, HPCs don't give you that!), but you can ask the
+  Farm and Cabernet folk to check out
+  [Singularity](http://singularity.lbl.gov/), which is a
+  docker-compatible system.
