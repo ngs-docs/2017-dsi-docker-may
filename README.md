@@ -6,7 +6,7 @@ Where: Data Science Initiative, UC Davis
 
 Who: [C. Titus Brown](http://ivory.idyll.org/blog/), titus@idyll.org
 
-## In advance
+## Before the workshop
 
 ### INSTALL IN ADVANCE
 
@@ -38,10 +38,15 @@ This is network intensive so it'd be nice if you could do it in advance!
 ----
 
 Titus will also spin up a few instances on Jetstream (see
-[boot instructions(https://2017-ucsc-metagenomics.readthedocs.io/en/latest/jetstream/boot.html)) for people to use.
+[boot instructions(https://2017-ucsc-metagenomics.readthedocs.io/en/latest/jetstream/boot.html)) for people to use.  The only trick here is that you need to do give your account permission to run docker, e.g.
+
+```
+sudo usermod -aG docker titus
+```
 
 ## Introducing Docker
 
-foo.
+![Containers for isolation](images/isolation.png)
+
 
 
