@@ -221,7 +221,7 @@ New ones:
 
 `docker ps` - list running processes.
 
-`docker rm -f` - kill container & remove working container.
+`docker rm -f` - kill & remove working container.
 
 `docker rmi` - remove downloaded image.
 
