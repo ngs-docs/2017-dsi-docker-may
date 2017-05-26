@@ -48,5 +48,8 @@ sudo usermod -aG docker titus
 
 ![Containers for isolation](images/isolation.png)
 
+![Containers running on your own computer](images/isolation-special.png)
 
+![Dockerfiles / image recipes](images/dockerfiles.png)
 
+![Sharing docker images](images/hub.png)
