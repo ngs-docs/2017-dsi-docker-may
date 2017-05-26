@@ -207,6 +207,26 @@ There are lots of "best practices" on writing Dockerfiles - see
 
 ## Docker commands
 
+Here a listing of some commands -- there's a bunch more, but these are the ones I mostly use.
+
+Ones we've seen:
+
+`docker run` - run a container from an image
+
+`docker build` - construct an image from a Dockerfile
+
+`docker pull` - copy a remote image for local use.
+
+New ones:
+
+`docker ps` - list running processes.
+
+`docker rm -f` - kill container & remove working image.
+
+`docker rmi` - remove downloaded image.
+
+`docker push` - send a built image to a remote site (for later pull).
+
 ## Sharing images
 
 You can upload your own images by creating an account on
