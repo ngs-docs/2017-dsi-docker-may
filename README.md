@@ -96,7 +96,7 @@ A few points to make --
 Hit CTRL-C again and let's adjust the command line a bit --
 
 ```
-docker run -it -p 9002:8787 -v $(pwd):/home/rstudio rockerb/tidyverse
+docker run -it -p 9002:8787 -v $(pwd):/home/rstudio rocker/tidyverse
 ```
 
 -- here we changed '9001' to '9002' and used the `-v` command to map our current working directory to `/home/rstudio` inside the container.  Now when we save files under `/home/rstudio` inside the container they will show up in our laptop (or jetstream machine's) directory.
@@ -221,7 +221,7 @@ New ones:
 
 `docker ps` - list running processes.
 
-`docker rm -f` - kill container & remove working image.
+`docker rm -f` - kill & remove working container.
 
 `docker rmi` - remove downloaded image.
 
