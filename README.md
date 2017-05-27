@@ -11,6 +11,8 @@ Who: [C. Titus Brown](http://ivory.idyll.org/blog/), titus@idyll.org
 that Luiz Irber and I ran at BIDS on UC Berkeley campus in January
 2016.)
 
+Note: the workshop was recorded! [You can watch the recording here.](https://www.youtube.com/watch?v=y1cE6d34kf8)
+
 ## Before the workshop
 
 ### INSTALL IN ADVANCE
